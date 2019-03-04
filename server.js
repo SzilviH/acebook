@@ -9,18 +9,10 @@ const port = 3000;
 
 app.use(express.static("PUBLIC"));
 
-app.get("/", (req, res) => {
+app.get("/home", (req, res) => {
     res.sendFile(path.resolve(__dirname, "views", "home.html"));
 });
 
-app.get('/users', db.getUsers)
+// app.get('/users', db.getUsers)
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
-
-// const server = createServer(app);
-// server.listen(port, err => {
-//     if (err) {throw err}
-//     else {
-//         console.log("Server Started!");
-//     }
-// });
