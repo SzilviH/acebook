@@ -10,7 +10,7 @@ const port = 3000;
 app.use(express.static("PUBLIC"));
 
 app.get("/", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "PUBLIC", "views/home.html"));
+    res.sendFile(path.resolve(__dirname, "views", "home.html"));
 });
 
 app.get('/users', db.getUsers)
