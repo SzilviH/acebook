@@ -10,5 +10,6 @@ describe('adding a post', () => {
       content: 'My first post'
     });
     await page.click('#submit')
+    await expect(page).toMatch("My first post")
   });
 });
