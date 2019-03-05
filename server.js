@@ -18,3 +18,6 @@ app.get("/home", (req, res) => {
 app.use('/post', post)
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+
+connection.pool.query("SELECT * FROM posts")
+.then((res) => console.log(res.rows[rows.length-1]))

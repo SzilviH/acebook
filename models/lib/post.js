@@ -1,8 +1,6 @@
 const connection = require("../../database/connection");
 
 
-
-
 class Post {
   constructor(id, message){
     this.id = id
