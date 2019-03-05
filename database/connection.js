@@ -7,17 +7,20 @@ const pool = new Pool({
     port: 5432
 });
 
-exports.execute_query = function (query) {
+// exports.execute_query = async function (query) {
+//
+//     // pool.query(query, (error, results) => {
+//     //     if (error) {
+//     //         throw error
+//     //     }
+//     //     return results
+//     //     // console.log(results)
+//     //     // return JSON.parse(results.rows)
+//     // });
+//
+//     pool.query(query)
+//   .then((res) => console.log(res.rows[0])) // brianc
+//   .catch(err => console.error('Error executing query', err.stack))
+// }
 
-    // pool.query(query, (error, results) => {
-    //     if (error) {
-    //         throw error
-    //     }
-    //     return results
-    //
-    // });
-
-    pool.query('SELECT * from posts')
-  .then((res) => console.log(res.rows[0])) // brianc
-  .catch(err => console.error('Error executing query', err.stack))
-}
+module.exports.pool = pool

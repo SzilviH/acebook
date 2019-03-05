@@ -15,7 +15,7 @@ describe('creates an instance of post', () => {
 
 describe('saving posts', () => {
   it("saves post to databse", () => {
-    // Post.saveToDB("hello");
+    Post.saveToDB("supppp");
     // expect(connection.execute_query("SELECT * FROM posts ORDER BY Id DESC")).toEqual("hello")
   });
 });

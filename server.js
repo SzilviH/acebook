@@ -15,14 +15,6 @@ app.get("/home", (req, res) => {
     res.sendFile(path.resolve(__dirname, "views", "home.html"));
 });
 
-// app.get('/users', db.getUsers)
-
 app.use('/post', post)
-
-
-
-connection.execute_query()
-
-
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

@@ -1,9 +1,8 @@
 {
   "name": "acebook",
-  "jest":
-  {
-  "preset": "jest-puppeteer"
-},
+  "jest": {
+    "preset": "jest-puppeteer"
+  },
   "version": "1.0.0",
   "description": "Acebook test project ",
   "main": "server.js",
@@ -14,7 +13,9 @@
     "pg": "^7.8.1",
     "puppeteer": "^1.12.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.3.4"
+  },
   "scripts": {
     "test": "jest"
   },
@@ -27,5 +28,13 @@
   "bugs": {
     "url": "https://github.com/isabelcooper/Acebook/issues"
   },
-  "homepage": "https://github.com/isabelcooper/Acebook#readme"
+  "homepage": "https://github.com/isabelcooper/Acebook#readme",
+  "plugins": [
+    [
+      "@babel/plugin-proposal-class-properties",
+      {
+        "loose": true
+      }
+    ]
+  ]
 }
