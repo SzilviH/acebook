@@ -7,16 +7,20 @@ const pool = new Pool({
     port: 5432
 });
 
-const getUsers = (request, response) => {
-    pool.query('SELECT * FROM users', (error, results) => {
-        if (error) {
-            throw error
-        }
-        response.status(200).json(results.rows)
-        // JSON.stringify(thing)
-    })
-}
+// exports.execute_query = async function (query) {
+//
+//     // pool.query(query, (error, results) => {
+//     //     if (error) {
+//     //         throw error
+//     //     }
+//     //     return results
+//     //     // console.log(results)
+//     //     // return JSON.parse(results.rows)
+//     // });
+//
+//     pool.query(query)
+//   .then((res) => console.log(res.rows[0])) // brianc
+//   .catch(err => console.error('Error executing query', err.stack))
+// }
 
-module.exports = {
-    getUsers
-}
+module.exports.pool = pool
