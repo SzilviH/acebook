@@ -11,8 +11,12 @@ const post = require('./routes/post');
 
 app.use(express.static("PUBLIC"));
 
-app.get("/home", (req, res) => {
+app.get("/", (req, res) => {
     res.sendFile(path.resolve(__dirname, "views", "home.html"));
+});
+
+app.get("/feed", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "views", "feed.html"));
 });
 
 app.use('/post', post)

@@ -8,14 +8,8 @@
   <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 <body align = center>
-    <p>What's on your mind?</p>
-    <form action="/post/create" method="post" name="addPost">
-      <input type="text" name="content" placeholder="Post">
-      <input id="submit" type="submit" name="submit" value="Submit">
-    </form>
     <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
     <a href="#" onclick="signOut();">Sign out</a>
-
     <script>
       function onSignIn(googleUser) {
         // Useful data for your client-side scripts:
@@ -27,9 +21,13 @@
         console.log("Image URL: " + profile.getImageUrl());
         console.log("Email: " + profile.getEmail());
 
+        localStorage.setItem("username", profile.getName());
+        localStorage.setItem("image", profile.getImageUrl());
+
         // The ID token you need to pass to your backend:
         var id_token = googleUser.getAuthResponse().id_token;
         console.log("ID Token: " + id_token);
+        window.location.href = "/feed";
       }
     </script>
     <script>
