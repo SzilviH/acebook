@@ -18,7 +18,7 @@ class Post {
      })
      return allPostsArray;
   }
-
+  
 
 }
 
