@@ -10,18 +10,28 @@
   <body align=center>
     <nav>
       <div>
-        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-        <a href="/" class="here">Home</a>
-        <a href="#" onclick="signOut();">Sign out</a>
+        <a href="/" id="home-login" class="here">Home</a>
+        <a href="#" id="sign-out" onclick="signOut();">Sign out</a>
         <input id="srchbar" type="search" placeholder="Search">
       </div>
     </nav>
-    <p>What's on your mind?</p>
-    <form action="/post/create" method="post" name="addPost">
-      <input type="text" name="content" placeholder="Post">
-      <input id="submit" type="submit" name="submit" value="Submit">
-    </form>
+    <div id="feed">
+      <div id="post-form">
+        <p>What's on your mind?</p>
+        <form action="/post/create" method="post" name="addPost">
+          <input type="text" name="content" placeholder="Post">
+          <input id="submit" type="submit" name="submit" value="Submit">
+        </form>
+      </div>
+      <div id="posts-placeholder">
+      </div>
+    </div>
+    <div id="good-bye-message">
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
+      var loginStatus = false;
       function onSignIn(googleUser) {
         // Useful data for your client-side scripts:
         var profile = googleUser.getBasicProfile();
@@ -38,15 +48,23 @@
         // The ID token you need to pass to your backend:
         var id_token = googleUser.getAuthResponse().id_token;
         console.log("ID Token: " + id_token);
+        loginStatus = true;
       }
-    </script>
-    <script>
       function signOut() {
         var auth2 = gapi.auth2.getAuthInstance();
         auth2.signOut().then(function () {
           console.log('User signed out.');
+          loginStatus = false;
         });
       }
+      $(document).ready(function(){
+         $('#sign-out').click(function () {
+          $('#feed').hide();
+          $('#sign-out').hide();
+          $('#good-bye-message').text("See ya!");
+          $('#home-login').text("Log in");
+        });
+      });
     </script>
   </body>
 </html>
