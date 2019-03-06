@@ -1,8 +1,7 @@
-
-const connection = require ("../database/connection")
+const postModel = require("../models/lib/post.js")
 
 exports.post_create = function (req, res) {
-  console.log('hello');
+  console.log(req)
 
 }
 

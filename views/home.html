@@ -6,6 +6,7 @@
   <meta name="google-signin-scope" content="profile email">
   <meta name="google-signin-client_id" content="176013400464-7iemt6j1diecc6cnik262qutqb0k4cgh.apps.googleusercontent.com">
   <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <!-- <script src="./homeInterface.js"></script> not working with node-->
 </head>
 <body align = center>
     <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
@@ -37,6 +38,17 @@
           console.log('User signed out.');
         });
       }
+    </script>
+  <script>
+    const onFormSubmit = () => {
+      let form = document.getElementById("postForm");
+      form.addEventListener("submit", function(event) {
+        event.preventDefault();
+        let post = document.getElementById('userPost').value;
+        console.log(post);
+      });
+    }
+    onFormSubmit();
     </script>
 </body>
 </html>
