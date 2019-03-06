@@ -1,7 +1,7 @@
 describe('adding a post', () => {
 
   beforeAll(async () => {
-    await page.goto('http://localhost:3000/home');
+    await page.goto('http://localhost:3000/feed');
   });
 
   it("users can add a post", async () => {
