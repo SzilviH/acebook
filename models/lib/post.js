@@ -11,10 +11,14 @@ class Post {
 
  };
   static async getPosts() {
+    let allPostsArray = [];
     let allPosts = await connection.pool.query("SELECT * FROM posts");
-    return allPosts.rows
-
+     allPosts.rows.forEach(function(message){
+       allPostsArray.push(new Post(message.id, message.message))
+     })
+     return allPostsArray;
   }
+
 
 }
 

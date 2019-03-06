@@ -38,4 +38,12 @@ describe('saving posts',  () => {
       let result = await Post.getPosts()
       expect(result.length).toEqual(2);
     });
-    });
+    it("returns an array of post objects", async () =>{
+      await connection.pool.query("TRUNCATE TABLE posts")
+      await Post.saveToDB("hello")
+      await Post.saveToDB("second post")
+      let result = await Post.getPosts()
+      expect(result[0] instanceof Post).toEqual(true); 
+    })
+
+  });
