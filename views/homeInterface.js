@@ -1,4 +1,4 @@
-
+// 
 // const onFormSubmit = () => {
 //   let form = document.getElementById("postForm");
 //   console.log(form);
@@ -9,7 +9,7 @@
 //   });
 // }
 // onFormSubmit();
-//not working with node js for now
+// not working with node js for now
 
 
 
