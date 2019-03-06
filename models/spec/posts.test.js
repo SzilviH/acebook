@@ -24,18 +24,18 @@ describe('creates an instance of post', () => {
 describe('saving posts',  () => {
   it("saves post to databse",  async () => {
     await connection.pool.query("TRUNCATE TABLE posts")
-    Post.saveToDB("hello")
-    .then(()=> connection.pool.query("SELECT * FROM posts ORDER BY id DESC LIMIT 1"))
-   .then((res) => expect(res.rows[0].message).toEqual('hello'));
+    await Post.saveToDB("hello")
+    let result = await connection.pool.query("SELECT * FROM posts ORDER BY id DESC LIMIT 1")
+    expect(result.rows[0].message).toEqual('hello')
   });
   });
 
-  describe('saving posts',  () => {
-    it("saves post to databse",  async () => {
+  describe('getting posts',  () => {
+    it("gets all posts from db",  async () => {
       await connection.pool.query("TRUNCATE TABLE posts")
-      Post.saveToDB("hello")
-      .then(() => Post.saveToDB("second post"))
-      .then(()=> connection.pool.query("SELECT * FROM posts ORDER BY id DESC LIMIT 1"))
-     .then((res) => expect(res.rows.length).toEqual(2));
+      await Post.saveToDB("hello")
+      await Post.saveToDB("second post")
+      let result = await Post.getPosts()
+      expect(result.length).toEqual(2);
     });
     });
