@@ -1,11 +1,10 @@
-
-const connection = require ("../database/connection")
+const postModel = require("../models/lib/post.js")
 
 exports.post_create = function (req, res) {
-  console.log('hello');
+  console.log(req)
 
 }
 
 
- 
+
 // connection.execute_query("INSERT INTO posts (id, message) VALUES (4, 'four')");
