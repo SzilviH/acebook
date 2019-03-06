@@ -9,6 +9,8 @@ const port = 3000;
 
 const post = require('./routes/post');
 
+// const onFormSubmit = require('./views/homeInterface');
+
 app.use(express.static("PUBLIC"));
 
 app.get("/home", (req, res) => {
@@ -16,5 +18,7 @@ app.get("/home", (req, res) => {
 });
 
 app.use('/post', post)
+
+// app.use(express.static(__dirname + '/views'));
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
