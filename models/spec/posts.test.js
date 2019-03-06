@@ -19,11 +19,10 @@ describe('creates an instance of post', () => {
   });
 });
 
-//test works properly only on a second run
-describe('saving posts', async () => {
-  it("saves post to databse", async () => {
-    await Post.saveToDB("something different");
-    await connection.pool.query("SELECT * FROM posts ORDER BY id DESC LIMIT 1")
-   .then((res) => expect(res.rows[0].message).toEqual('something else'));
+describe('saving posts',  () => {
+  it("saves post to databse",  () => {
+    Post.saveToDB("hello")
+    .then(()=> connection.pool.query("SELECT * FROM posts ORDER BY id DESC LIMIT 1"))
+   .then((res) => expect(res.rows[0].message).toEqual('hello'));
   });
   });
