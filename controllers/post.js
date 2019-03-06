@@ -1,14 +1,6 @@
 const postModel = require("../models/lib/post.js")
 
 exports.post_create = function (req, res) {
-  console.log(req)
-
+  postModel.saveToDB(req.query.content)
+  res.sendFile("/Users/sauleguzyte/Projects/week9/abook/Acebook/views/feed.html")
 }
-
-
-
-// connection.execute_query("INSERT INTO posts (id, message) VALUES (4, 'four')");
-
-
-// localStorage.getItem("username");
-// localStorage.getItem("image");
