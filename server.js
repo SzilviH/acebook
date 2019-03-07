@@ -9,8 +9,6 @@ const port = 3000;
 
 const post = require('./routes/post');
 
-// const onFormSubmit = require('./views/homeInterface');
-
 app.get("/", (req, res) => {
     res.sendFile(path.resolve(__dirname, "views", "home.html"));
 });

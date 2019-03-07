@@ -6,7 +6,11 @@
     <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id" content="176013400464-7iemt6j1diecc6cnik262qutqb0k4cgh.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+
     <script src="loginInterface.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="homeInterface.js"></script>
+    <script src="signOutInterface.js"></script>
   </head>
   <body align=center>
     <nav>
@@ -19,18 +23,20 @@
     <div id="feed">
       <div id="post-form">
         <p>What's on your mind?</p>
-        <form action="/post/create" method="post" name="addPost">
+        <form action="/post/create" method="get" name="addPost">
           <input type="text" name="content" placeholder="Post">
           <input id="submit" type="submit" name="submit" value="Submit">
         </form>
       </div>
-      <div id="posts-placeholder">
+
+      <div id="postContainer">
+
       </div>
+
     </div>
     <div id="good-bye-message">
 
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="signOutInterface.js"></script>
+
   </body>
 </html>

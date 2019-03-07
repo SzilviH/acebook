@@ -1,17 +1,13 @@
-// 
-// const onFormSubmit = () => {
-//   let form = document.getElementById("postForm");
-//   console.log(form);
-//   form.addEventListener("submit", function(event) {
-//     event.preventDefault();
-//     let post = document.getElementById('userPost').value;
-//     console.log(post);
-//   });
-// }
-// onFormSubmit();
-// not working with node js for now
+const loadMessages = async () => {
+  const response = await fetch ('/post')
+  const jresponse = await response.json()
+  formatMessages(jresponse)
+}
 
+const formatMessages = (jresponse) => {
+  jresponse.forEach( (element) => {
+    $('#postContainer').append(element.message)
+  })
+}
 
-
-
-// module.exports = onFormSubmit;
+loadMessages()

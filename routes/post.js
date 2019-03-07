@@ -3,7 +3,9 @@ var router = express.Router();
 
 var post_controller = require('../controllers/post');
 
-router.post('/create', post_controller.post_create);
+router.get('/create', post_controller.post_create);
+
+router.get('/', post_controller.post_show);
 
 
 

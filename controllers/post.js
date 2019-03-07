@@ -1,14 +1,11 @@
 const postModel = require("../models/lib/post.js")
 
 exports.post_create = function (req, res) {
-  console.log(req)
-
+  postModel.saveToDB(req.query.content)
+  res.redirect("http://localhost:3000/feed")
 }
 
-
-
-// connection.execute_query("INSERT INTO posts (id, message) VALUES (4, 'four')");
-
-
-// localStorage.getItem("username");
-// localStorage.getItem("image");
+exports.post_show = async function (req, res) {
+  let data = await postModel.getPosts()
+  res.send(data)
+}
