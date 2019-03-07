@@ -1,12 +1,15 @@
 const Pool = require("pg").Pool;
+const dotenv = require('dotenv');
+dotenv.config();
+console.log(process.env.DATABASE_URL)
 const pool = new Pool({
     // user: "",
     // host: "localhost",
     // database: "acebook",
     // password: "",
     // port: 5432
-    connectionString: process.env.DATABASE_URL,
-    ssl: true
+    connectionString: process.env.DATABASE_URL ,
+    // ssl: true
 });
 
 // exports.execute_query = async function (query) {
