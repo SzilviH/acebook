@@ -8,4 +8,4 @@ exports.post_create = function (req, res) {
 exports.post_show = async function (req, res) {
   let data = await postModel.getPosts()
   res.send(data)
-}
+};
