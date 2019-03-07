@@ -1,4 +1,3 @@
-
 const loadMessages = async () => {
   const response = await fetch ('/post')
   const jresponse = await response.json()
