@@ -1,11 +1,9 @@
-// const { createServer } = require("http");
 const path = require("path");
 
 const express = require("express");
 const app = express();
-const connection = require("./database/connection")
 
-const port = 3000;
+const port = process.env.PORT|| 3000;
 
 const post = require('./routes/post');
 
