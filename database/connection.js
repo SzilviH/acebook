@@ -1,10 +1,12 @@
 const Pool = require("pg").Pool;
 const pool = new Pool({
-    user: "",
-    host: "localhost",
-    database: "acebook",
-    password: "",
-    port: 5432
+    // user: "",
+    // host: "localhost",
+    // database: "acebook",
+    // password: "",
+    // port: 5432
+    connectionString: process.env.DATABASE_URL,
+    ssl: true
 });
 
 // exports.execute_query = async function (query) {
