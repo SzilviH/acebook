@@ -1,5 +1,10 @@
-Running locally:
+Staging:
 
+All heroku CLI commands default to staging. When deploying deploy first to staging:
+```git push staging master```
+once changes have been tested deploy to production ``` git push production master```
+
+Running locally:
 Set up local db:
 
 ```
