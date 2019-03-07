@@ -1,18 +1,14 @@
-// $(document).ready(function(){
-//    $('#sign-out').click(function () {
-//     $('#feed').hide();
-//     $('#sign-out').hide();
-//     $('#good-bye-message').text("See ya!");
-//     $('#home-login').text("Log in");
-//   });
-// });
 
-
-const onFormSubmit = () => {
-  let form = $("#postForm");
-  console.log(form);
-  // $('#submit').on('submit', function () {
-  //   onFormSubmit();
-  // });
+const loadMessages = async () => {
+  const response = await fetch ('/post')
+  const jresponse = await response.json()
+  formatMessages(jresponse)
 }
-onFormSubmit();
+
+const formatMessages = (jresponse) => {
+  jresponse.forEach( (element) => {
+    $('#postContainer').append(element.message)
+  })
+}
+
+loadMessages()
