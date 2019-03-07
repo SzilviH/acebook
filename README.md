@@ -1,1 +1,20 @@
-This will be our readme :)
+Running locally:
+
+Set up local db:
+
+```
+psql;
+CREATE DATABASE acebook;
+\c acebook;
+CREATE TABLE posts (id SERIAL PRIMARY KEY, message VARCHAR);
+```
+Copy database url shown in terminal
+
+Add .env file
+- create .env file in root directory
+```
+DATABASE_URL = <database url copied above>
+LOCAL = true
+```
+
+run =  ```heroku local```
