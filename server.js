@@ -20,4 +20,4 @@ app.use('/post', post)
 
 app.use(express.static(__dirname + '/views'));
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.listen(port, () => console.log(`MAGICAL app listening here: ${port}!`))
