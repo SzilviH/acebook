@@ -4,9 +4,9 @@ const Post = require("../lib/post.js");
 const savePost = require("../lib/post").savePost
 const connection = require("../../database/connection")
 
-beforeEach(() => {
-  connection.pool.query("TRUNCATE TABLE posts")
-});
+// beforeEach(() => {
+//   connection.pool.query("TRUNCATE TABLE posts")
+// });
 
 describe('creates an instance of post', () => {
   it("should have a message paramater", async () => {
