@@ -5,8 +5,9 @@ class Post {
     this.id = id
     this.message = message
   };
-  static async saveToDB(content) {
-   await connection.pool.query(`INSERT INTO posts (message) VALUES ('${content}')`);
+  static async saveToDB(content, user) {
+   await connection.pool.query(`INSERT INTO posts (message, username) VALUES ('${content}', '${user}')`);
+
  };
   static async getPosts() {
     let allPostsArray = [];
