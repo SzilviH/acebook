@@ -1,5 +1,5 @@
 language: node_js
 node_js:  v11.10
 before_script:
-  - psql -c "CREATE USER Isabel WiTH PASSWORD 'Isabel';" -U postgres
+  - psql -c "CREATE USER Isabel WITH PASSWORD 'Isabel';" -U postgres
   - psql -c 'create database travis_ci_test;' -U postgres
