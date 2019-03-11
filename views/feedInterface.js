@@ -27,8 +27,7 @@ const loadMessages = async () => {
 const formatMessages = (jresponse) => {
   $('#postContainer').empty();
   jresponse.forEach((element) => {
-    console.log(element);
-    $('#postContainer').append(`<div id=${element.id}> ${element.message.replace(/([\\])/g,"'").replace(/,/g,"<br/>")} -- ${element.user}<div>`)
+    $('#postContainer').append(`<div id=${element.id}> ${element.message.replace(/([\\])/g,"'").replace(/,/g,"<br/>")} -- ${element.user} -- ${element.date}<div>`)
   })
 }
 
