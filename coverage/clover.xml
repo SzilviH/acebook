@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1552302784916" clover="3.2.0">
-  <project timestamp="1552302784917" name="All files">
-    <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4" elements="19" coveredelements="19" complexity="0" loc="15" ncloc="15" packages="2" files="2" classes="2"/>
+<coverage generated="1552316707929" clover="3.2.0">
+  <project timestamp="1552316707929" name="All files">
+    <metrics statements="18" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="1" elements="22" coveredelements="12" complexity="0" loc="18" ncloc="18" packages="2" files="2" classes="2"/>
     <package name="database">
       <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="connection.js" path="/Users/Isabel/projects/Makers_Month4/Acebook/database/connection.js">
+      <file name="connection.js" path="/Users/cmontgom/Projects/MakersCourse/Week10/Acebook/database/connection.js">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -14,19 +14,22 @@
       </file>
     </package>
     <package name="models.lib">
-      <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
-      <file name="post.js" path="/Users/Isabel/projects/Makers_Month4/Acebook/models/lib/post.js">
-        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+      <metrics statements="13" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="1"/>
+      <file name="post.js" path="/Users/cmontgom/Projects/MakersCourse/Week10/Acebook/models/lib/post.js">
+        <metrics statements="13" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
-        <line num="5" count="6" type="stmt"/>
-        <line num="6" count="6" type="stmt"/>
-        <line num="9" count="5" type="stmt"/>
-        <line num="12" count="2" type="stmt"/>
-        <line num="13" count="2" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
-        <line num="15" count="4" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
-        <line num="21" count="1" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
       </file>
     </package>
   </project>
