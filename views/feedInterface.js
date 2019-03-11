@@ -1,7 +1,7 @@
 const getUser = async (content) => {
    let user = await localStorage.getItem("username");
     await $.ajax({
-     url: "/post/create?userid=" + user + "&content=" + content,
+     url: "/post/create?userid=" + user + "&content=" + encodeURIComponent(content),
      success: () => {
      },
      complete: () => {
@@ -13,7 +13,7 @@ const getUser = async (content) => {
 $(document).ready(function() {
   $('#submit').click(function(event) {
     event.preventDefault();
-    let content = $('#postContent').val()
+    let content = $('#postContent').val().replace(/(['])/g,'\\').split('\n');
     getUser(content);
   })
 })
@@ -27,8 +27,7 @@ const loadMessages = async () => {
 const formatMessages = (jresponse) => {
   $('#postContainer').empty();
   jresponse.forEach((element) => {
-    console.log(element);
-    $('#postContainer').append(`<div id=${element.id}> ${element.message} -- ${element.user}<div>`)
+    $('#postContainer').append(`<div id=${element.id}> ${element.message.replace(/([\\])/g,"'").replace(/,/g,"<br/>")} -- ${element.user} -- ${element.date}<div>`)
   })
 }
 
