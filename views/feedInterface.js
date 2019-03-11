@@ -13,7 +13,7 @@ const getUser = async (content) => {
 $(document).ready(function() {
   $('#submit').click(function(event) {
     event.preventDefault();
-    let content = $('#postContent').val().replace(/(['])/g,'\\');
+    let content = $('#postContent').val().replace(/(['])/g,'\\').split('\n');
     getUser(content);
   })
 })
@@ -28,17 +28,8 @@ const formatMessages = (jresponse) => {
   $('#postContainer').empty();
   jresponse.forEach((element) => {
     console.log(element);
-    $('#postContainer').append(`<div id=${element.id}> ${element.message.replace(/([\\])/g,"'")} -- ${element.user}<div>`)
+    $('#postContainer').append(`<div id=${element.id}> ${element.message.replace(/([\\])/g,"'").replace(/,/g,"<br/>")} -- ${element.user}<div>`)
   })
 }
-
-
-// function escapeSpecial(unsafe) {
-//     return unsafe.replace(/&/g, "&amp;")
-//          .replace(/</g, "&lt;")
-//          .replace(/>/g, "&gt;")
-//          .replace(/"/g, "&quot;")
-//          .replace(/'/g, "&#039;");
-// }
 
 loadMessages()
