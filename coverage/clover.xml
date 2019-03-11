@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1552064556157" clover="3.2.0">
-  <project timestamp="1552064556157" name="All files">
-    <metrics statements="15" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2" elements="19" coveredelements="12" complexity="0" loc="15" ncloc="15" packages="2" files="2" classes="2"/>
+<coverage generated="1552301781202" clover="3.2.0">
+  <project timestamp="1552301781202" name="All files">
+    <metrics statements="15" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="1" elements="19" coveredelements="10" complexity="0" loc="15" ncloc="15" packages="2" files="2" classes="2"/>
     <package name="database">
       <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="connection.js" path="/Users/Isabel/projects/Makers_Month4/Acebook/database/connection.js">
@@ -14,13 +14,13 @@
       </file>
     </package>
     <package name="models.lib">
-      <metrics statements="10" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
+      <metrics statements="10" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="1"/>
       <file name="post.js" path="/Users/Isabel/projects/Makers_Month4/Acebook/models/lib/post.js">
-        <metrics statements="10" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
+        <metrics statements="10" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="9" count="3" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
         <line num="13" count="0" type="stmt"/>
         <line num="14" count="0" type="stmt"/>

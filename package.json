@@ -17,7 +17,7 @@
     "@babel/plugin-proposal-class-properties": "^7.3.4"
   },
   "scripts": {
-    "test": "jest --coverage"
+    "test": "jest --coverage --detectOpenHandles"
   },
   "repository": {
     "type": "git",
