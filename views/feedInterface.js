@@ -27,9 +27,19 @@ const loadMessages = async () => {
 const formatMessages = (jresponse) => {
   $('#postContainer').empty();
   jresponse.forEach((element) => {
-    console.log(element);
     $('#postContainer').append(`<div id=${element.id}> ${element.message} -- ${element.user}<div>`)
   })
 }
+
+$(document).on("keydown", function(key) {
+    if(key.which === 13) { // enter key
+        key.preventDefault(); // prevents linebreak
+        $('#postContent').val($('#postContent').val() + "<br/>");
+        // here you could add your submit call
+        // return false;
+
+
+    }
+});
 
 loadMessages()
