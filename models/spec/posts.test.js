@@ -14,29 +14,29 @@ describe('creates an instance of post', () => {
   });
 });
 
-// describe('saving posts',  () => {
-//   it("saves post to databse",  async () => {
-//     await connection.pool.query("TRUNCATE TABLE posts")
-//     await Post.saveToDB("hello")
-//     let result = await connection.pool.query("SELECT * FROM posts ORDER BY id DESC LIMIT 1")
-//     expect(result.rows[0].message).toEqual('hello')
-//   });
-//   });
-//
-//   describe('getting posts',  () => {
-//     it("gets all posts from db",  async () => {
-//       await connection.pool.query("TRUNCATE TABLE posts")
-//       await Post.saveToDB("hello")
-//       await Post.saveToDB("second post")
-//       let result = await Post.getPosts()
-//       expect(result.length).toEqual(2);
-//     });
-//     it("returns an array of post objects", async () =>{
-//       await connection.pool.query("TRUNCATE TABLE posts")
-//       await Post.saveToDB("hello")
-//       await Post.saveToDB("second post")
-//       let result = await Post.getPosts()
-//       expect(result[0] instanceof Post).toEqual(true);
-//     })
-  // 
-  // });
+describe('saving posts',  () => {
+  it("saves post to databse",  async () => {
+    await connection.pool.query("TRUNCATE TABLE posts")
+    await Post.saveToDB("hello")
+    let result = await connection.pool.query("SELECT * FROM posts ORDER BY id DESC LIMIT 1")
+    expect(result.rows[0].message).toEqual('hello')
+  });
+  });
+
+  describe('getting posts',  () => {
+    it("gets all posts from db",  async () => {
+      await connection.pool.query("TRUNCATE TABLE posts")
+      await Post.saveToDB("hello")
+      await Post.saveToDB("second post")
+      let result = await Post.getPosts()
+      expect(result.length).toEqual(2);
+    });
+    it("returns an array of post objects", async () =>{
+      await connection.pool.query("TRUNCATE TABLE posts")
+      await Post.saveToDB("hello")
+      await Post.saveToDB("second post")
+      let result = await Post.getPosts()
+      expect(result[0] instanceof Post).toEqual(true);
+    })
+
+  });
