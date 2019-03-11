@@ -1,6 +1,7 @@
 {
   "name": "acebook",
   "jest": {
+    "preset": "jest-puppeteer"
   },
   "version": "1.0.0",
   "description": "Acebook test project ",
@@ -11,6 +12,8 @@
     "express": "^4.16.4",
     "googleapis": "^37.2.0",
     "jest": "^24.1.0",
+    "jest-puppeteer": "^4.0.0",
+    "puppeteer": "^1.12.2",
     "pg": "^7.8.1"
   },
   "devDependencies": {
