@@ -23,3 +23,8 @@ LOCAL = true
 ```
 
 run =  ```heroku local```
+
+
+add a date column in your database
+data type = timestamp
+column defualt = NOW()
