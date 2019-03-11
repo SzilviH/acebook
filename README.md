@@ -11,7 +11,7 @@ Set up local db:
 psql;
 CREATE DATABASE acebook;
 \c acebook;
-CREATE TABLE posts (id SERIAL PRIMARY KEY, message VARCHAR);
+CREATE TABLE posts (id SERIAL PRIMARY KEY, message VARCHAR, username VARCHAR);
 ```
 Copy database url shown in terminal
 
