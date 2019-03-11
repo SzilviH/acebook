@@ -1,8 +1,10 @@
-Staging:
-
-All heroku CLI commands default to staging. When deploying deploy first to staging:
-```git push staging master```
-once changes have been tested deploy to production ``` git push production master```
+Pipelines:
+- commit to your feature branch
+- create pull request in github
+- assuming no conflicts and travis CI passes, merge pull request
+- this deploys to staging in heroku automatically (takes a couple of mins)
+- test in staging and promote to prod if all good (either promote in heroku or command line:
+`heroku pipelines:promote -r staging`)
 
 Running locally:
 Set up local db:
@@ -21,8 +23,6 @@ Add .env file
 DATABASE_URL = 'postgresql://<your_username>@localhost/acebook'
 LOCAL = true
 ```
+If cloning this repo ensure the .evn has the correct database url param. 
 
-run =  ```heroku local```
-
-
-test 
+run =  ```heroku local``` 
