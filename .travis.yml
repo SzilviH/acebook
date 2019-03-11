@@ -1,2 +1,7 @@
 language: node_js
-node_js: node
+node_js:  v11.10
+env:
+  - DATABASE_URL=postgres://nbdtbkat:jswELLQWtbqyPT8ljAnMP2mVNFfK7Z52@isilo.db.elephantsql.com:5432/nbdtbkat
+#before_script:
+#  - psql -c "CREATE USER Isabel WITH PASSWORD 'Isabel';" -U postgres
+#  - psql -c 'create database travis_ci_test;' -U postgres

@@ -1,21 +1,14 @@
 const Post = require("../lib/post.js");
-// const DatabaseCleaner = require('database-cleaner');
-// dbcleaner = new DatabaseCleaner('postgresql')
 const savePost = require("../lib/post").savePost
 const connection = require("../../database/connection")
 
-// beforeEach(() => {
-//   connection.pool.query("TRUNCATE TABLE posts")
-// });
-
 describe('creates an instance of post', () => {
-  it("should have a message paramater", async () => {
-    await connection.pool.query("TRUNCATE TABLE posts")
+  it("should have a message paramater", async() => {
     let post = new Post(1, "message");
     expect(post.message).toEqual("message");
   });
+
   it("should have an id", async () => {
-    await connection.pool.query("TRUNCATE TABLE posts")
     let post = new Post(2, "message");
     expect(post.id).toEqual(2);
   });
@@ -43,7 +36,7 @@ describe('saving posts',  () => {
       await Post.saveToDB("hello")
       await Post.saveToDB("second post")
       let result = await Post.getPosts()
-      expect(result[0] instanceof Post).toEqual(true); 
+      expect(result[0] instanceof Post).toEqual(true);
     })
 
   });

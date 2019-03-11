@@ -11,20 +11,17 @@ Set up local db:
 psql;
 CREATE DATABASE acebook;
 \c acebook;
-CREATE TABLE posts (id SERIAL PRIMARY KEY, message VARCHAR);
+CREATE TABLE posts (id SERIAL PRIMARY KEY, message VARCHAR, username VRCHAR(100);
 ```
 Copy database url shown in terminal
 
 Add .env file
 - create .env file in root directory
 ```
-DATABASE_URL = <database url copied above>
+DATABASE_URL = 'postgresql://<your_username>@localhost/acebook'
 LOCAL = true
 ```
 
 run =  ```heroku local```
 
 
-add a date column in your database
-data type = timestamp
-column defualt = NOW()
