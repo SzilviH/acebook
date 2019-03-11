@@ -13,7 +13,9 @@ Set up local db:
 psql;
 CREATE DATABASE acebook;
 \c acebook;
-CREATE TABLE posts (id SERIAL PRIMARY KEY, message VARCHAR, username VRCHAR(100);
+
+CREATE TABLE posts (id SERIAL PRIMARY KEY, message VARCHAR, username VARCHAR);
+
 ```
 Copy database url shown in terminal
 
@@ -26,3 +28,4 @@ LOCAL = true
 If cloning this repo ensure the .evn has the correct database url param. 
 
 run =  ```heroku local``` 
+
