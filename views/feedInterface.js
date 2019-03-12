@@ -15,6 +15,7 @@ $(document).ready(function() {
     event.preventDefault();
     let content = $('#postContent').val().replace(/(['])/g,'\\').split('\n');
     getUser(content);
+    $('#postContent').val("");
   })
 })
 
