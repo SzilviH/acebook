@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT ;
 const post = require('./routes/post');
+const like = require('./routes/like');
 
 app.get("/", (req, res) => {
     res.sendFile(path.resolve(__dirname, "views", "home.html"));
@@ -13,5 +14,6 @@ app.get("/feed", (req, res) => {
 });
 
 app.use('/post', post);
+app.use('/likes', like);
 app.use(express.static(__dirname + '/views'));
 app.listen(port, () => console.log(`MAGICAL app listening here: ${port}!`));

@@ -24,17 +24,24 @@ describe('adding a post', () => {
   });
 
   it("can handle new lines", async () => {
-      await page.type("#postContent", "first line");
-      await page.screenshot({path: 'first-line.png'});
-      await page.keyboard.press('Enter');
-      await page.screenshot({path: 'second-line.png'});
-      await page.type("#postContent", "second line");
-      await page.screenshot({path: 'third-line.png'});
-      await page.click('#submit');
-      await page.screenshot({path: 'fourth-line.png'});
-      await expect(page).toMatch("first line\nsecond line")
-  });
+    await page.type("#postContent", "first line");
+    await page.keyboard.press('Enter');
+    await page.type("#postContent", "second line");
+    await page.click('#submit');
+    await expect(page).not.toMatch("first line second line");
+    });
 
+ it("clears textbox on submit", async () => {
+    await page.type("#postContent", "this will be cleared");
+    await page.click("#submit");
+
+    var text = await page.evaluate(() => {
+        return document.getElementById("postContent").value
+    })
+    console.log(text);
+
+    await expect(text).toEqual("");
+})
 
   it("displays the time it was created", async () => {
     let now = await Date(Date.now()).toString().substring(1, 15);
