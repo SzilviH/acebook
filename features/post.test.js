@@ -4,8 +4,8 @@ describe('adding a post', () => {
     await page.goto('http://localhost:5000/feed');
   });
 
-  it("asks users for a post", () => {
-     expect(page).toMatch("What's on your mind?");
+  it("asks users for a post", async () => {
+     await expect(page).toMatch("What's on your mind?");
   });
 
   it('users can add posts ', async () => {
@@ -25,22 +25,16 @@ describe('adding a post', () => {
 
   it("can handle new lines", async () => {
       await page.type("#postContent", "first line");
-      await page.screenshot({path: '1.png'});
       await page.keyboard.press('Enter');
-      await page.screenshot({path: '2.png'});
       await page.type("#postContent", "second line");
-      await page.screenshot({path: '3.png'});
       await page.click('#submit');
-      await page.screenshot({path: '4.png'});
 
       await expect(page).not.toMatch("first line second line")
   });
 
   it("clears textbox on submit", async () => {
     await page.type("#postContent", "this will be cleared");
-    await page.screenshot({path: 'text-in-box.png'});
     await page.click("#submit");
-    await page.screenshot({path: 'text-box-on-submit.png'});
 
     var text = await page.evaluate(() => {
         return document.getElementById("postContent").value
