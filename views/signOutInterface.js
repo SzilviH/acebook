@@ -5,4 +5,5 @@ $(document).ready(function(){
     $('#good-bye-message').text("See ya!");
     $('#home-login').text("Log in");
   });
+  localStorage.clear();
 });
