@@ -12,5 +12,12 @@
 // }
 //
 // // $('#parent').append('<div>hello</div>');
-// // // or
-// loadMessages()
+// // // // or
+// // loadMessages()
+//
+// $(document).ready(function() {
+//   $('.g-signin2').click(function(event) {
+//     event.preventDefault();
+//     console.log('hello');
+//   })
+// })
