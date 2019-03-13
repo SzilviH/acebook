@@ -1,7 +1,6 @@
 let user = localStorage.getItem("username");
 
 $(document).ready(function() {
-    // console.log(user);
     if (user === null) {
         $(location).attr('href', '/')
     } else {
@@ -34,16 +33,26 @@ const sendLike = async (postID) => {
     success: () => {
     },
     complete: () => {
-      dealWithLike()
+      // getLikes()
     }
   })
 }
 
-const dealWithLike = async () => {
-  const response = await fetch ('/likes');
-  const jresponse = await response.json();
-  // console.log(jresponse);
+const getLikes = async (postID) => {
+  await $.ajax({
+    url: "/likes?postid=" + postID,
+    success: () => {
+    },
+    complete: () => {
+      // dealWithLike()
+    }
+  })
 }
+
+// const dealWithLike = async () => {
+//   const response = await fetch ('/likes');
+//   const jresponse = await response.json();
+// }
 
 
 const loadMessages = async () => {
@@ -56,7 +65,7 @@ const loadMessages = async () => {
     };
 
     const makePostDiv = (element) => {
-        return `<div id=${element.id}>`+formatUserInput(element)+`-- ${element.user} -- ${element.date}`+makeLikeButton(element)+ makeCommentBox(element) + `<div>`
+        return `<div id=${element.id}>`+formatUserInput(element)+`-- ${element.user} -- ${element.date}`+makeLikeButton(element)+ makeCommentBox(element) + getLikes(element.id) +`<div>`
     };
 
     const makeCommentBox = (element) => {
@@ -69,8 +78,6 @@ const loadMessages = async () => {
     const addLikeEventListener = (element) => {
         let id = `like-button-${element.id}`;
         $(`#${id}`).click(() => {
-            // console.log("console hello");
-            // fetch('/likes')
             sendLike(element.id);
         })
     };
@@ -78,8 +85,6 @@ const loadMessages = async () => {
       const addCommentEventListener = (element) => {
         let id = `comment-${element.id}`;
         $(`#${id}`).click(() => {
-            // console.log("console hello");
-//             fetch('/likes')
         })
     };
 
@@ -95,4 +100,5 @@ const loadMessages = async () => {
     const response = await fetch ('/post');
     const jresponse = await response.json();
     formatMessages(jresponse);
+
 };

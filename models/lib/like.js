@@ -10,13 +10,14 @@ class Like {
    await connection.pool.query(`INSERT INTO likes (postid) VALUES ('${postid}')`);
   };
 
-  static async getLikes() {
-    let allLikesArray = [];
-      let allLikes = await connection.pool.query("SELECT * FROM likes");
-      allLikes.rows.forEach((element) => {
-        allLikesArray.push('a fake like')
+  static async getLikes(postid) {
+    let likesPerPost = [];
+      let allLikes = await connection.pool.query(`SELECT * FROM likes WHERE postid ='${postid}'`);
+        allLikes.rows.forEach((element) => {
+        likesPerPost.push(element)
       });
-      return allLikesArray;
+      let nrOfLikes = likesPerPost.length
+      return nrOfLikes;
   }
 }
 module.exports = Like;

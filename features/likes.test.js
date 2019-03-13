@@ -4,7 +4,11 @@ describe('liking a post', () => {
 
     beforeEach(async () => {
         await page.goto('http://localhost:5000/feed');
-        await connection.pool.query("TRUNCATE TABLE posts RESTART IDENTITY");
+        await page.evaluate(() => {
+          localStorage.setItem("username","User");
+          });
+        await page.goto('http://localhost:5000/feed');
+        await connection.pool.query("TRUNCATE TABLE posts, likes RESET IDENTITY;")
     });
 
     it("shows the like on post", async () => {
@@ -16,7 +20,5 @@ describe('liking a post', () => {
 
         await expect(page).toMatch("1 like");
     });
-
-
 
 });

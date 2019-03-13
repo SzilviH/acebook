@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<coverage generated="1552406687856" clover="3.2.0">
-  <project timestamp="1552406687856" name="All files">
-    <metrics statements="33" coveredstatements="18" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="4" elements="40" coveredelements="22" complexity="0" loc="33" ncloc="33" packages="3" files="3" classes="3"/>
-
+<coverage generated="1552492764888" clover="3.2.0">
+  <project timestamp="1552492764888" name="All files">
+    <metrics statements="20" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0" elements="23" coveredelements="5" complexity="0" loc="20" ncloc="20" packages="2" files="2" classes="2"/>
     <package name="database">
       <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="connection.js" path="/Users/sauleguzyte/Projects/week9/tuesw2acebook/Acebook/database/connection.js">
+      <file name="connection.js" path="/Users/szilvi/Projects/group_proj/Acebook/database/connection.js">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -15,23 +13,9 @@
         <line num="9" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="models.lib">
-      <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
-
-      <file name="post.js" path="/Users/cmontgom/Projects/MakersCourse/Week10/Acebook/models/lib/post.js">
-
-        <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="5" count="6" type="stmt"/>
-        <line num="6" count="6" type="stmt"/>
-        <line num="7" count="6" type="stmt"/>
-        <line num="8" count="6" type="stmt"/>
-
-      </file>
-    </package>
     <package name="views">
       <metrics statements="15" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
-      <file name="loginInterface.js" path="/Users/sauleguzyte/Projects/week9/tuesw2acebook/Acebook/views/loginInterface.js">
+      <file name="loginInterface.js" path="/Users/szilvi/Projects/group_proj/Acebook/views/loginInterface.js">
         <metrics statements="15" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <line num="3" count="0" type="stmt"/>
         <line num="4" count="0" type="stmt"/>
@@ -48,7 +32,6 @@
         <line num="21" count="0" type="stmt"/>
         <line num="22" count="0" type="stmt"/>
         <line num="23" count="0" type="stmt"/>
-
       </file>
     </package>
   </project>
