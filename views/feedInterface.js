@@ -38,7 +38,7 @@ const loadMessages = async () => {
 
             const makeCommentBox = (element) => {
                 return `<form name="addComment">
-                <textarea id="commentContent" type="text" name="comment" placeholder="comment" rows ='1' cols = '60'></textarea>
+                <textarea id="commentContent-${element.id}" type="text" name="comment" placeholder="comment" rows ='1' cols = '60'></textarea>
                 <input id="comment-${element.id}" type="submit" name="comment" value="comment">
                 </form>`
             };
@@ -52,11 +52,20 @@ const loadMessages = async () => {
 
         const addEventListener = (element, action) => {
             let id = `${action}-${element.id}`;
-            $(`#${id}`).click((event) => {
-                event.preventDefault();
-                console.log("console hello");
-                fetch('/likes')
-            })
+                $(`#${id}`).click((event, action) => {
+                    event.preventDefault();
+                    if(action === 'like') {
+                        console.log("console hello");
+                        fetch('/likes')
+                    }
+                    else {
+                        let commentContent = $(`#commentContent-${element.id}`).val();
+                        $.post("/comments/create", {content: commentContent, postId: element.id, author: user });
+                    }
+
+
+                })
+
         };
 
         $('#postContainer').empty();
