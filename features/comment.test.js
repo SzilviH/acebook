@@ -8,14 +8,13 @@ describe('comments ', () => {
             localStorage.setItem("username", "User");
         });
         await page.goto('http://localhost:5000/feed');
-        await expect(page).toFillForm('form[name="addPost"]', {
-            content: 'My first post'
-        });
-        await page.click('#submit');
     });
 
     it("should have a comment option", async () => {
-        await page.screenshot({path: "comment.png"});
+        await expect(page).toFillForm('form[name="addPost"]', {
+            content: 'Post for a comment'
+        });
+        await page.click('#submit');
         await expect(page).toFillForm('form[name="addComment"]', {
             comment: 'Long comment'
         });

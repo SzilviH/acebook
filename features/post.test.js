@@ -48,11 +48,10 @@ describe('Logged In ', () => {
 
       var text = await page.evaluate(() => {
         return document.getElementById("postContent").value
-      })
-      console.log(text);
+      });
 
       await expect(text).toEqual("");
-    })
+    });
 
     it("displays the time it was created", async () => {
       let now = await Date(Date.now()).toString().substring(1, 15);
