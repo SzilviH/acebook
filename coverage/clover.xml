@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1552402842285" clover="3.2.0">
-  <project timestamp="1552402842285" name="All files">
-    <metrics statements="33" coveredstatements="18" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="4" elements="40" coveredelements="22" complexity="0" loc="33" ncloc="33" packages="3" files="3" classes="3"/>
+
+<coverage generated="1552321276425" clover="3.2.0">
+  <project timestamp="1552321276426" name="All files">
+    <metrics statements="18" coveredstatements="18" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4" elements="22" coveredelements="22" complexity="0" loc="18" ncloc="18" packages="2" files="2" classes="2"/>
+
     <package name="database">
       <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="connection.js" path="/Users/sauleguzyte/Projects/week9/tuesw2acebook/Acebook/database/connection.js">
@@ -15,21 +17,16 @@
     </package>
     <package name="models.lib">
       <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
-      <file name="post.js" path="/Users/sauleguzyte/Projects/week9/tuesw2acebook/Acebook/models/lib/post.js">
+
+      <file name="post.js" path="/Users/cmontgom/Projects/MakersCourse/Week10/Acebook/models/lib/post.js">
+
         <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
         <line num="1" count="1" type="stmt"/>
         <line num="5" count="6" type="stmt"/>
         <line num="6" count="6" type="stmt"/>
         <line num="7" count="6" type="stmt"/>
         <line num="8" count="6" type="stmt"/>
-        <line num="12" count="5" type="stmt"/>
-        <line num="16" count="2" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
-        <line num="18" count="2" type="stmt"/>
-        <line num="19" count="4" type="stmt"/>
-        <line num="20" count="4" type="stmt"/>
-        <line num="22" count="2" type="stmt"/>
-        <line num="26" count="1" type="stmt"/>
+
       </file>
     </package>
     <package name="views">
@@ -51,6 +48,7 @@
         <line num="21" count="0" type="stmt"/>
         <line num="22" count="0" type="stmt"/>
         <line num="23" count="0" type="stmt"/>
+
       </file>
     </package>
   </project>

@@ -23,17 +23,49 @@ const getUser = async (content) => {
        loadMessages()
      }
    })
- }
+ };
+
+$(document).ready(function() {
+  $('#submit').click(function(event) {
+    event.preventDefault();
+    let content = $('#postContent').val().replace(/(['])/g,'\\').split('\n');
+    getUser(content);
+    $('#postContent').val("");
+  })
+});
 
 const loadMessages = async () => {
-  const response = await fetch ('/post')
-  const jresponse = await response.json()
-  formatMessages(jresponse)
-}
+    const formatUserInput = (element) => {
+        return `${element.message.replace(/([\\])/g,"'").replace(/,/g,"<br/>")}`
+    };
 
-const formatMessages = (jresponse) => {
-  $('#postContainer').empty();
-  jresponse.forEach((element) => {
-    $('#postContainer').append(`<div id=${element.id}> ${element.message.replace(/([\\])/g,"'").replace(/,/g,"<br/>")} -- ${element.user} -- ${element.date}<br><br><div>`)
-  })
-}
+    const makeLikeButton = (element) => {
+        return `<button id=like-button-${element.id} type="button"></button>`;
+    };
+
+    const makePostDiv = (element) => {
+        return `<div id=${element.id}>`+formatUserInput(element)+`-- ${element.user} -- ${element.date}`+makeLikeButton(element)+`<div>`
+    };
+
+    const addLikeEventListener = (element) => {
+        let id = `like-button-${element.id}`;
+        $(`#${id}`).click(() => {
+            console.log("console hello");
+            fetch('/likes')
+        })
+    };
+
+    const formatMessages = (jresponse) => {
+        $('#postContainer').empty();
+        jresponse.forEach((element) => {
+            $('#postContainer').append(makePostDiv(element));
+            addLikeEventListener(element);
+        })
+    };
+
+    const response = await fetch ('/post');
+    const jresponse = await response.json();
+    formatMessages(jresponse);
+};
+
+

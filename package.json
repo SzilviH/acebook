@@ -20,7 +20,7 @@
     "@babel/plugin-proposal-class-properties": "^7.3.4"
   },
   "scripts": {
-    "test": "jest --coverage --forceExit"
+    "test": "jest --coverage --forceExit --runInBand"
   },
   "repository": {
     "type": "git",
