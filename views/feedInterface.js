@@ -28,6 +28,7 @@ const getUser = async (content) => {
     })
 };
 
+
 const loadMessages = async () => {
     const formatUserInput = (element) => {
         return `${element.message.replace(/([\\])/g,"'").replace(/,/g,"<br/>")}`
@@ -56,7 +57,9 @@ const loadMessages = async () => {
         })
     };
 
+
     const addCommentEventListener = (element) => {
+
         let id = `comment-${element.id}`;
         $(`#${id}`).click(() => {
             console.log("console hello");
@@ -77,5 +80,3 @@ const loadMessages = async () => {
     const jresponse = await response.json();
     formatMessages(jresponse);
 };
-
-
