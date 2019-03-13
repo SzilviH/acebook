@@ -28,9 +28,8 @@ const getUser = async (content) => {
     })
 };
 
-
 const loadMessages = async () => {
-    const formatMessages = (jresponse) => {
+    const formatMessages = (posts, comments) => {
         const makePostDiv = (element) => {
             const makeLikeButton = (element) => {
                 return `<button id=like-${element.id} type="button"></button>`;
@@ -47,7 +46,21 @@ const loadMessages = async () => {
                 return `${element.message.replace(/([\\])/g,"'").replace(/,/g,"<br/>")}`
             };
 
-            return `<div id=${element.id}>`+formatUserInput(element)+`-- ${element.user} -- ${element.date}`+makeLikeButton(element)+ makeCommentBox(element) + `<div>`
+            const relevantComments = (postid) => {
+                return comments.filter((comment) => { return comment.postId === postid })
+            }
+
+            const makeCommentDiv = (element) => {
+                // return `<!--<div>Something ${comments[0].content}</div>-->`;
+                let postComments = relevantComments(element.id);
+                return postComments.forEach((comment) => {
+                    console.log(comment.content);
+                    // return '<div> hello</div>'
+                    return `<div>Comment: ${comment.content} <br> User: ${comment.user}</div>`
+                })  
+            }
+
+            return `<div id=${element.id}>`+formatUserInput(element)+`-- ${element.user} -- ${element.date}`+makeLikeButton(element) + makeCommentDiv(element) + makeCommentBox(element) + `<div>`
         };
 
         const addEventListener = (element, action) => {
@@ -69,14 +82,18 @@ const loadMessages = async () => {
         };
 
         $('#postContainer').empty();
-        jresponse.forEach((element) => {
+        posts.forEach((element) => {
             $('#postContainer').append(makePostDiv(element));
             addEventListener(element, "like");
             addEventListener(element, "comment");
         })
     };
 
-    const response = await fetch ('/post');
-    const jresponse = await response.json();
-    formatMessages(jresponse);
+    const postsresponse = await fetch ('/post');
+    const posts = await postsresponse.json();
+    const commentsresponse = await fetch ('/comments');
+    const comments = await commentsresponse.json();
+
+
+    formatMessages(posts, comments);
 };

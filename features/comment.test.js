@@ -17,7 +17,7 @@ describe('comments ', () => {
             content: 'Post for a comment'
         });
         await page.click('#submit');
-        await page.waitForSelector("#commentContent");
+        await page.waitForSelector("#commentContent-1");
         await expect(page).toFillForm('form[name="addComment"]', {
             comment: 'Long comment'
         });

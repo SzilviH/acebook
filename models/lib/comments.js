@@ -13,16 +13,16 @@ class Comment {
         console.log("model");
         await connection.pool.query(`INSERT INTO comments (content, author, postId) VALUES ('${content}', '${user}', '${postId}')`);
     };
-    //
-    // static async getPosts() {
-    //     let allPostsArray = [];
-    //     let allPosts = await connection.pool.query("SELECT id, message, username, date FROM posts ORDER BY date DESC");
-    //     allPosts.rows.forEach((element) => {
-    //         element.date = element.date.toString().substring(0, 24);
-    //         allPostsArray.push(new Post(element.id, element.message, element.username, element.date))
-    //     });
-    //     return allPostsArray;
-    // }
+
+    static async getComments() {
+        let allCommentsArray = [];
+        let allComments = await connection.pool.query("SELECT id, content, postid, author, date FROM comments ORDER BY date DESC");
+        allComments.rows.forEach((element) => {
+            element.date = element.date.toString().substring(0, 24);
+            allCommentsArray.push(new Comment(element.id, element.content, element.author, element.postid, element.date))
+        });
+        return allCommentsArray;
+    }
 }
 
 module.exports = Comment;
