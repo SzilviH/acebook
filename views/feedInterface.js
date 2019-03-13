@@ -19,14 +19,15 @@ $(document).ready(function() {
 
 const getUser = async (content) => {
     await $.ajax({
-     url: "/post/create?userid=" + user + "&content=" + encodeURIComponent(content),
-     success: () => {
-     },
-     complete: () => {
-       loadMessages()
-     }
-   })
- };
+        url: "/post/create?userid=" + user + "&content=" + encodeURIComponent(content),
+        success: () => {
+        },
+        complete: () => {
+            loadMessages()
+        }
+    })
+};
+
 
 const loadMessages = async () => {
     const formatUserInput = (element) => {
@@ -42,7 +43,7 @@ const loadMessages = async () => {
     };
 
     const makeCommentBox = (element) => {
-      return `<form name="addComment">
+        return `<form name="addComment">
        <textarea id="commentContent" type="text" name="comment" placeholder="comment" rows ='1' cols = '60'></textarea>
      <input id="comment-${element.id}" type="submit" name="comment" value="comment">
      </form>`
@@ -56,7 +57,9 @@ const loadMessages = async () => {
         })
     };
 
-      const addCommentEventListener = (element) => {
+
+    const addCommentEventListener = (element) => {
+
         let id = `comment-${element.id}`;
         $(`#${id}`).click(() => {
             console.log("console hello");
