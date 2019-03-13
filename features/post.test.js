@@ -1,6 +1,10 @@
 describe('adding a post', () => {
 
   beforeAll(async () => {
+    await page.goto('http://localhost:5000/');
+    await page.evaluate(() => {
+      localStorage.setItem("username","User");
+      });
     await page.goto('http://localhost:5000/feed');
   });
 

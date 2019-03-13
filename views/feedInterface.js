@@ -1,5 +1,20 @@
+let user = localStorage.getItem("username");
+
+$(document).ready(function() {
+  console.log(user);
+  if (user === null) {
+    $(location).attr('href', '/')
+  } else {
+    loadMessages()
+  }
+  $('#submit').click(function(event) {
+    event.preventDefault();
+    let content = $('#postContent').val().replace(/(['])/g,'\\').split('\n');
+    getUser(content);
+  })
+})
+
 const getUser = async (content) => {
-   let user = await localStorage.getItem("username");
     await $.ajax({
      url: "/post/create?userid=" + user + "&content=" + encodeURIComponent(content),
      success: () => {
@@ -54,4 +69,3 @@ const loadMessages = async () => {
 };
 
 
-loadMessages();
