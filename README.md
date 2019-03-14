@@ -16,6 +16,8 @@ CREATE DATABASE acebook;
 
 CREATE TABLE posts (id SERIAL PRIMARY KEY, message VARCHAR, username VARCHAR);
 
+CREATE TABLE likes (likeID SERIAL PRIMARY KEY, postID INTEGER, FOREIGN KEY (postID) REFERENCES posts(id));
+
 ```
 Copy database url shown in terminal
 
@@ -25,8 +27,8 @@ Add .env file
 DATABASE_URL = 'postgresql://<your_username>@localhost/acebook'
 LOCAL = true
 ```
-If cloning this repo ensure the .evn has the correct database url param. 
+If cloning this repo ensure the .evn has the correct database url param.
 
-run =  ```heroku local``` 
+run =  ```heroku local```
 
 test commit
