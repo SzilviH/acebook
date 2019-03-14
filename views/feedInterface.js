@@ -45,7 +45,7 @@ const loadMessages = async () => {
             };
             const makeCommentBox = (element) => {
                 return `<form name="addComment">
-                <textarea id="commentContent-${element.id}" type="text" name="comment" placeholder="comment" rows ='1' cols = '60'></textarea>
+                <textarea class="addComment" id="commentContent-${element.id}" type="text" name="comment" placeholder="add comment" rows ='1' cols = '60'></textarea>
                 <input id="comment-${element.id}" type="submit" name="comment" value="comment">
                 </form>`
             };
@@ -71,7 +71,7 @@ const loadMessages = async () => {
                 let postComments = relevantComments(element.id);
                 let masterDiv = "";
                  postComments.forEach((comment) => {
-                     masterDiv += (`<div class="comment"><span class="comment-body">${comment.content}</span> <span class="user">${comment.user}</span></div>`);
+                     masterDiv += (`<div class="comment"><span class="comment-body">${comment.content}</span> <span class="user"> -- ${comment.user}</span></div>`);
                 });
                 return masterDiv
             };
@@ -79,7 +79,7 @@ const loadMessages = async () => {
             const makeCommentPlaceholder = (element) => {
                 return `<div id="placeholder-${element.id}"></div>`
             };
-            return `<div id=${element.id} class="post-div"><img src = ${element.user_image}>`+formatUserInput(element)+`-- ${element.user} -- ${element.date}`+makeLikeButton(element) + makeCommentDiv(element) + makeCommentPlaceholder(element) + makeCommentBox(element) + `<span id="likes-count-${element.id}">` + relevantLikes(element.id) + "</span></div><br><br>"
+            return `<div id=${element.id} class="post-div"><img src = ${element.user_image}> `+formatUserInput(element)+` -- ${element.user} -- ${element.date}<br>`+makeLikeButton(element) + makeCommentDiv(element) + makeCommentPlaceholder(element) + makeCommentBox(element) + `<span id="likes-count-${element.id}">` + relevantLikes(element.id) + "</span></div><br><br>"
 
         };
         const addEventListener = (element, action) => {

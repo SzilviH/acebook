@@ -1,5 +1,65 @@
 body {
     font-family: monospace;
+    font-size: 14px;
+    margin: 0;
+    /* background-image: linear-gradient(to right top, #f3f4ef, #edefe4, #e7ead8, #e1e5cd, #dce0c1, #cbd0ac, #b9c097, #a8b082, #879260, #667640, #465a22, #274001); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(plants.jpg);
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #274001;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+li {
+  float: left;
+  font-size: 14px;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+button {
+  border-radius: 4px;
+  box-shadow: none;
+  font-family: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+#srchbar {
+  padding: auto;
+  text-align: center;
+}
+
+#srchbar:focus {
+  background-color: lightblue;
+  outline: none;
+}
+
+.active {
+  background-color: #79a77b;
+}
+
+.brand {
+  background-color: rgb(3, 27, 16)
 }
 
 .post-div {
@@ -15,6 +75,18 @@ body {
     color: #0074D9;
 }
 
+.addComment {
+  border-style: solid;
+  border-radius: 5px;
+  background-color: #f6f5eb;
+  border-width: 1px;
+}
+
+.addComment:focus {
+  background-color: lightblue;
+  outline: none;
+}
+
 .user {
     font-size: 10px
 }
@@ -28,4 +100,39 @@ body {
 
 #postContent:focus {
   background-color: lightblue;
+  outline: none;
+}
+
+img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 100px;
+}
+
+input[type="submit"] {
+  border-radius: 4px;
+  box-shadow: none;
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+input[type="search"] {
+  float: right;
+  border-radius: 4px;
+  padding: 6px;
+  margin-top: 8px;
+  margin-right: 14px;
+  border: none;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.g-signin2{
+  width: 100%;
+}
+
+.g-signin2 > div{
+  margin: 0 auto;
 }
