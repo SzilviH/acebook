@@ -4,7 +4,7 @@ describe('comments ', () => {
 
     beforeAll(async () => {
         await sleep.sleep(1);
-        await connection.pool.query("TRUNCATE TABLE posts, comments RESTART IDENTITY");
+        await connection.pool.query("TRUNCATE TABLE posts, comments, likes RESTART IDENTITY");
         await page.goto('http://localhost:5000/');
         await page.evaluate(() => {
             localStorage.setItem("username", "User");
@@ -27,4 +27,3 @@ describe('comments ', () => {
     });
 
 });
-
