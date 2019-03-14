@@ -14,7 +14,7 @@ psql;
 CREATE DATABASE acebook;
 \c acebook;
 
-CREATE TABLE posts (id SERIAL PRIMARY KEY, message VARCHAR, username VARCHAR);
+CREATE TABLE posts (id SERIAL PRIMARY KEY, message VARCHAR, username VARCHAR, user_image VARCHAR);
 CREATE TABLE comments (id SERIAL PRIMARY KEY, content VARCHAR, postId INTEGER REFERENCES posts (id), author VARCHAR, date TIMESTAMP DEFAULT NOW());
 
 CREATE TABLE likes (likeID SERIAL PRIMARY KEY, postID INTEGER, FOREIGN KEY (postID) REFERENCES posts(id));

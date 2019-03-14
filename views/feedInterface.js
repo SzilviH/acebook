@@ -1,9 +1,11 @@
 let user = localStorage.getItem("username");
+let user_image = localStorage.getItem("image");
 $(document).ready(function() {
     if (user === null) {
         $(location).attr('href', '/')
     } else {
-        loadMessages()
+        loadMessages();
+        $("#post-form").prepend(`<img src = ${user_image}>`)
     }
     $('#submit').click(function (event) {
         event.preventDefault();
@@ -14,7 +16,7 @@ $(document).ready(function() {
 });
 const getUser = async (content) => {
     await $.ajax({
-        url: "/post/create?userid=" + user + "&content=" + encodeURIComponent(content),
+        url: "/post/create?userid=" + user + "&content=" + encodeURIComponent(content) + "&user_image="+user_image,
         success: () => {
         },
         complete: () => {
@@ -74,9 +76,8 @@ const loadMessages = async () => {
 
             const makeCommentPlaceholder = (element) => {
                 return `<div id="placeholder-${element.id}"></div><br> <br>`
-            }
-            return `<div id=${element.id}>`+formatUserInput(element)+`-- ${element.user} -- ${element.date}`+makeLikeButton(element) + makeCommentDiv(element) + makeCommentBox(element) + `<span id="likes-count-${element.id}">` + relevantLikes(element.id) + `</span>` + `<div>`
-  
+            };
+            return `<div id=${element.id}><img src = ${element.user_image}>`+formatUserInput(element)+`-- ${element.user} -- ${element.date}`+makeLikeButton(element) + makeCommentDiv(element) + makeCommentPlaceholder(element) + makeCommentBox(element) + `<span id="likes-count-${element.id}">` + relevantLikes(element.id) + "</span></div>"
 
         };
         const addEventListener = (element, action) => {

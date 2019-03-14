@@ -6,6 +6,6 @@ exports.post_show = async function (req, res) {
 }
 
 exports.post_create = async function (req, res) {
-  await postModel.saveToDB(req.query.content, req.query.userid)
+    await postModel.saveToDB(req.query.content, req.query.userid, req.query.user_image);
   res.redirect("/feed")
 }
