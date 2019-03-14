@@ -1,8 +1,10 @@
-const sleep = require('sleep')
+const sleep = require('sleep');
+const connection = require("../database/connection");
 describe('Logged In ', () => {
 
   beforeAll(async () => {
-    await sleep.sleep(1)
+    await sleep.sleep(1);
+    await connection.pool.query("TRUNCATE TABLE posts, comments RESTART IDENTITY");
     await page.goto('http://localhost:5000/');
     await page.evaluate(() => {
       localStorage.setItem("username","User");
@@ -25,28 +27,6 @@ describe('Logged In ', () => {
     });
   });
 
-  // describe('adding a comment', () => {
-  //
-  //   beforeAll(async () => {
-  //     await expect(page).toFillForm('form[name="addPost"]', {
-  //       content: 'My first post'
-  //     });
-  //     await page.click('#submit');
-  //   })
-  //
-  //   it("should have a comment option", async () => {
-  //     await expect(page).toMatch('Comment')
-  //
-  //   });
-  //
-  //   it("should have a comment option", async () => {
-  //     await expect(page).toFillForm('form[name="addComment"]', {
-  //       comment: 'Long comment'
-  //     });
-  //     await page.click('.comment');
-  //     await expect(page).toMatch('Long comment')
-  //   });
-  // });
   describe('post special features', async() => {
     it("can handle special characters", async () => {
       await page.type("#postContent", "punctuation's $?%@!\"");
@@ -68,11 +48,10 @@ describe('Logged In ', () => {
 
       var text = await page.evaluate(() => {
         return document.getElementById("postContent").value
-      })
-      console.log(text);
+      });
 
       await expect(text).toEqual("");
-    })
+    });
 
     it("displays the time it was created", async () => {
       let now = await Date(Date.now()).toString().substring(1, 15);

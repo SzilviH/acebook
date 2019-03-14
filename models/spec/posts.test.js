@@ -16,9 +16,9 @@ describe('creates an instance of post', () => {
 
 describe('saving posts',  () => {
     beforeEach(async () => {
-        await connection.pool.query("TRUNCATE TABLE posts RESTART IDENTITY");
+        await connection.pool.query("TRUNCATE TABLE posts, comments RESTART IDENTITY");
     });
-  it("saves post to databse",  async () => {
+  it("saves post to database",  async () => {
     await Post.saveToDB("hello")
     let result = await connection.pool.query("SELECT * FROM posts ORDER BY id DESC LIMIT 1")
     expect(result.rows[0].message).toEqual('hello')
@@ -27,7 +27,7 @@ describe('saving posts',  () => {
 
   describe('getting posts',  () => {
     beforeEach(async () => {
-        await connection.pool.query("TRUNCATE TABLE posts RESTART IDENTITY");
+        await connection.pool.query("TRUNCATE TABLE posts, comments RESTART IDENTITY");
     });
     it("gets all posts from db",  async () => {
       await Post.saveToDB("hello")
