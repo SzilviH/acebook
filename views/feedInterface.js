@@ -1,10 +1,12 @@
 let user = localStorage.getItem("username");
+let first_name = localStorage.getItem("first_name");
 let user_image = localStorage.getItem("image");
 $(document).ready(function() {
     if (user === null) {
         $(location).attr('href', '/')
     } else {
         loadMessages();
+        $("greet_user").text(`${first_name}`);
         $("#post-form").prepend(`<img src = ${user_image}>`)
     }
     $('#submit').click(function (event) {
