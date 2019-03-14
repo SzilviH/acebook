@@ -22,25 +22,13 @@ describe('liking a post', () => {
               document.querySelector('#like-1').click()
           }),
         ]);
-        await page.waitForNavigation({waitUntil: 'networkidle2'});
-        await page.evaluate(() => {
-          localStorage.setItem("username","User");
-          });
-        await page.goto('http://localhost:5000/feed');
         await expect(page).toMatch("1 like");
     });
 
     it("shows second like on post", async () => {
-        await Promise.all([
-          page.evaluate(() => {
+         await page.evaluate(() => {
               document.querySelector('#like-1').click()
-          }),
-        ]);
-        await page.waitForNavigation({waitUntil: 'networkidle2'});
-        await page.evaluate(() => {
-          localStorage.setItem("username","User");
           });
-        await page.goto('http://localhost:5000/feed');
         await expect(page).toMatch("2 likes");
     });
 
