@@ -1,6 +1,5 @@
 let user = localStorage.getItem("username");
 $(document).ready(function() {
-    console.log(user);
     if (user === null) {
         $(location).attr('href', '/')
     } else {
@@ -33,18 +32,7 @@ const sendLike = async (postID) => {
     })
 }
 
-// const getLikes = async (postID) => {
-//     await $.ajax({
-//         url: "/likes?postid=" + postID,
-//         success: () => {
-//         },
-//         complete: () => {
-//         }
-//     })
-// }
-
 const loadMessages = async () => {
-  console.log(1);
     const formatMessages = (posts, comments, likes) => {
         const makePostDiv = (element) => {
             const makeLikeButton = (element) => {
@@ -75,12 +63,10 @@ const loadMessages = async () => {
             };
 
             const makeCommentDiv = (element) => {
-                // return `<!--<div>Something ${comments[0].content}</div>-->`;
                 let postComments = relevantComments(element.id);
                 let masterDiv = "";
                  postComments.forEach((comment) => {
                      masterDiv += (`<div>Comment: ${comment.content} User: ${comment.user}</div><br> <br>`);
-                    // return `<div>Comment: ${comment.content} <br> User: ${comment.user}</div>`
                 });
                 return masterDiv
             };
@@ -88,7 +74,7 @@ const loadMessages = async () => {
             const makeCommentPlaceholder = (element) => {
                 return `<div id="placeholder-${element.id}"></div><br> <br>`
             }
-            return `<div id=${element.id}>`+formatUserInput(element)+`-- ${element.user} -- ${element.date}`+makeLikeButton(element) + makeCommentDiv(element) + makeCommentBox(element) + relevantLikes(element.id) + `<div>`
+            return `<div id=${element.id}>`+formatUserInput(element)+`-- ${element.user} -- ${element.date}`+makeLikeButton(element) + makeCommentDiv(element) + makeCommentBox(element) + `<span id="likes-count-${element.id}">` + relevantLikes(element.id) + `</span>` + `<div>`
 
         };
         const addEventListener = (element, action) => {
@@ -111,7 +97,14 @@ const loadMessages = async () => {
             const addLikeListener = (id) => {
               $(`#${id}`).click((event) => {
                 sendLike(element.id);
-                $(location).attr('href', '/feed')
+                let currentLikes = $(`#likes-count-${element.id}`).text().slice(0, -5);
+                let likes = parseInt(currentLikes, 10);
+                if (likes === 0) {
+                  $(`#likes-count-${element.id}`).text(`1 like`)
+                } else {
+                  $(`#likes-count-${element.id}`).text(`${likes + 1} likes`)
+                }
+
               });
             }
 
