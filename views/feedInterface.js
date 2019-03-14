@@ -30,6 +30,7 @@ const sendLike = async (postID) => {
         complete: () => {
         }
     })
+
 };
 
 const loadMessages = async () => {
@@ -73,8 +74,10 @@ const loadMessages = async () => {
 
             const makeCommentPlaceholder = (element) => {
                 return `<div id="placeholder-${element.id}"></div><br> <br>`
+            }
+            return `<div id=${element.id}>`+formatUserInput(element)+`-- ${element.user} -- ${element.date}`+makeLikeButton(element) + makeCommentDiv(element) + makeCommentBox(element) + `<span id="likes-count-${element.id}">` + relevantLikes(element.id) + `</span>` + `<div>`
             };
-            return `<div id=${element.id}>`+formatUserInput(element)+`-- ${element.user} -- ${element.date}`+makeLikeButton(element) + makeCommentDiv(element) + makeCommentPlaceholder(element) + makeCommentBox(element) + relevantLikes(element.id) + `<div>`
+
 
         };
         const addEventListener = (element, action) => {
@@ -98,7 +101,14 @@ const loadMessages = async () => {
             const addLikeListener = (id) => {
               $(`#${id}`).click((event) => {
                 sendLike(element.id);
-                $(location).attr('href', '/feed')
+                let currentLikes = $(`#likes-count-${element.id}`).text().slice(0, -5);
+                let likes = parseInt(currentLikes, 10);
+                if (likes === 0) {
+                  $(`#likes-count-${element.id}`).text(`1 like`)
+                } else {
+                  $(`#likes-count-${element.id}`).text(`${likes + 1} likes`)
+                }
+
               });
             };
 
