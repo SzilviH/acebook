@@ -21,4 +21,5 @@ class Like {
       return likes;
   }
 }
+
 module.exports = Like;
