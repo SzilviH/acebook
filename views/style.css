@@ -1,0 +1,18 @@
+body {
+    font-family: monospace;
+}
+
+.post-div {
+    border-style: solid;
+    border-width: 1px;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.comment {
+    color: #0074D9;
+}
+
+.user {
+    font-size: 10px
+}

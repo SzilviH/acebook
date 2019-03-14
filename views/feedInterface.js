@@ -71,22 +71,22 @@ const loadMessages = async () => {
                 let postComments = relevantComments(element.id);
                 let masterDiv = "";
                  postComments.forEach((comment) => {
-                     masterDiv += (`<div>Comment: ${comment.content} User: ${comment.user}</div><br> <br>`);
+                     masterDiv += (`<div class="comment"><span class="comment-body">${comment.content}</span> <span class="user">${comment.user}</span></div>`);
                 });
                 return masterDiv
             };
 
             const makeCommentPlaceholder = (element) => {
-                return `<div id="placeholder-${element.id}"></div><br> <br>`
+                return `<div id="placeholder-${element.id}"></div>`
             };
-            return `<div id=${element.id}><img src = ${element.user_image}>`+formatUserInput(element)+`-- ${element.user} -- ${element.date}`+makeLikeButton(element) + makeCommentDiv(element) + makeCommentPlaceholder(element) + makeCommentBox(element) + `<span id="likes-count-${element.id}">` + relevantLikes(element.id) + "</span></div><br><br>"
+            return `<div id=${element.id} class="post-div"><img src = ${element.user_image}>`+formatUserInput(element)+`-- ${element.user} -- ${element.date}`+makeLikeButton(element) + makeCommentDiv(element) + makeCommentPlaceholder(element) + makeCommentBox(element) + `<span id="likes-count-${element.id}">` + relevantLikes(element.id) + "</span></div><br><br>"
 
         };
         const addEventListener = (element, action) => {
             let id = `${action}-${element.id}`;
 
             const addCommentToPost = (body, postId, author) => {
-                let newComment = (`<div>Comment: ${body} User: ${author}</div><br> <br>`);
+                let newComment = (`<div>Comment: ${body} User: ${author}</div>`);
                 $(`#placeholder-${postId}`).append(newComment)
             };
 
