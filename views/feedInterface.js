@@ -93,6 +93,7 @@ const loadMessages = async () => {
             const addCommentListener = (id) => {
               $(`#${id}`).click((event) => {
                 event.preventDefault();
+
                 let commentContent = $(`#commentContent-${element.id}`).val();
                 $.post("/comments/create", {content: commentContent, postId: element.id, author: user });
                 addCommentToPost(commentContent, element.id, user );
@@ -103,6 +104,7 @@ const loadMessages = async () => {
             const addLikeListener = (id) => {
               $(`#${id}`).click((event) => {
                 sendLike(element.id);
+                $(`#${id}`).hide();
                 let currentLikes = $(`#likes-count-${element.id}`).text().slice(0, -5);
                 let likes = parseInt(currentLikes, 10);
                 if (likes === 0) {
