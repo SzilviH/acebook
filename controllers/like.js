@@ -1,8 +1,8 @@
 const likeModel = require("../models/lib/like.js")
 
 exports.getLikes = async function (req, res) {
-  let data = await likeModel.getLikes(req.query.postid)
-  res.send(data.toString())
+  let data = await likeModel.getLikes()
+  res.send(data)
 }
 
 exports.saveLike = async function (req, res) {

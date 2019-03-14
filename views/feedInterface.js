@@ -29,25 +29,24 @@ const sendLike = async (postID) => {
         success: () => {
         },
         complete: () => {
-            // getLikes()
         }
     })
 }
-const getLikes = async (postID) => {
-    await $.ajax({
-        url: "/likes?postid=" + postID,
-        success: () => {
-        },
-        complete: () => {
-            // dealWithLike()
-        }
-    })
-}
+// const getLikes = async (postID) => {
+//     await $.ajax({
+//         url: "/likes?postid=" + postID,
+//         success: () => {
+//         },
+//         complete: () => {
+//         }
+//     })
+// }
 const loadMessages = async () => {
-    const formatMessages = (posts, comments) => {
+  console.log(1);
+    const formatMessages = (posts, comments, likes) => {
         const makePostDiv = (element) => {
             const makeLikeButton = (element) => {
-                return `<button id=like-${element.id} type="button"></button>`;
+                return `<button id=like-${element.id} type="button">Like</button>`;
             };
             const makeCommentBox = (element) => {
                 return `<form name="addComment">
@@ -55,12 +54,24 @@ const loadMessages = async () => {
                 <input id="comment-${element.id}" type="submit" name="comment" value="comment">
                 </form>`
             };
+
             const formatUserInput = (element) => {
                 return `${element.message.replace(/([\\])/g,"'").replace(/,/g,"<br/>")}`
             };
+
             const relevantComments = (postid) => {
                 return comments.filter((comment) => { return comment.postId === postid })
-            }
+            };
+
+            const relevantLikes = (postid) => {
+               let likesArray = likes.filter((like) => { return like.postid === postid})
+               if (likesArray.length === 1) {
+                 return `${likesArray.length} like`
+               } else {
+                 return `${likesArray.length} likes`
+               }
+            };
+
             const makeCommentDiv = (element) => {
                 // return `<!--<div>Something ${comments[0].content}</div>-->`;
                 let postComments = relevantComments(element.id);
@@ -71,7 +82,7 @@ const loadMessages = async () => {
                 })
                 return masterDiv
             }
-            return `<div id=${element.id}>`+formatUserInput(element)+`-- ${element.user} -- ${element.date}`+makeLikeButton(element) + makeCommentDiv(element) + makeCommentBox(element) + getLikes(element.id)+ `<div>`
+            return `<div id=${element.id}>`+formatUserInput(element)+`-- ${element.user} -- ${element.date}`+makeLikeButton(element) + makeCommentDiv(element) + makeCommentBox(element) + relevantLikes(element.id) + `<div>`
         };
         const addEventListener = (element, action) => {
             let id = `${action}-${element.id}`;
@@ -86,12 +97,13 @@ const loadMessages = async () => {
             const addLikeListener = (id) => {
               $(`#${id}`).click((event) => {
                 sendLike(element.id);
+                $(location).attr('href', '/feed')
               });
             }
 
             action === "like" ? addLikeListener(id) : addCommentListener(id);
         };
-        
+
         $('#postContainer').empty();
         posts.forEach((element) => {
             $('#postContainer').append(makePostDiv(element));
@@ -103,7 +115,13 @@ const loadMessages = async () => {
     const posts = await postsresponse.json();
     const commentsresponse = await fetch ('/comments');
     const comments = await commentsresponse.json();
-    formatMessages(posts, comments);
+    const likesresponse = await fetch ('/likes');
+    const likes = await likesresponse.json();
+    console.log(likes);
+    console.log(comments);
+    console.log(posts);
+
+    formatMessages(posts, comments, likes);
 };
 
 
