@@ -4,6 +4,8 @@ body {
 
 .post-div {
     border-style: solid;
+    border-radius: 5px;
+    background-color: lightgrey;
     border-width: 1px;
     margin-left: 20%;
     margin-right: 20%;
@@ -15,4 +17,15 @@ body {
 
 .user {
     font-size: 10px
+}
+
+#postContent {
+  border-style: solid;
+  border-radius: 5px;
+  background-color: #f6f5eb;
+  border-width: 1px;
+}
+
+#postContent:focus {
+  background-color: lightblue;
 }
