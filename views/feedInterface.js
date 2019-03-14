@@ -6,7 +6,7 @@ $(document).ready(function() {
         $(location).attr('href', '/')
     } else {
         loadMessages();
-        $("greet_user").text(`${first_name}`);
+        $("#greet_user").text(`${first_name}`);
         $("#post-form").prepend(`<img src = ${user_image}>`)
     }
     $('#submit').click(function (event) {
