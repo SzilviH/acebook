@@ -76,8 +76,7 @@ const loadMessages = async () => {
                 return `<div id="placeholder-${element.id}"></div><br> <br>`
             }
             return `<div id=${element.id}>`+formatUserInput(element)+`-- ${element.user} -- ${element.date}`+makeLikeButton(element) + makeCommentDiv(element) + makeCommentBox(element) + `<span id="likes-count-${element.id}">` + relevantLikes(element.id) + `</span>` + `<div>`
-            };
-
+  
 
         };
         const addEventListener = (element, action) => {
@@ -122,6 +121,7 @@ const loadMessages = async () => {
             addEventListener(element, "comment");
         })
     };
+
     const postsresponse = await fetch ('/post');
     const posts = await postsresponse.json();
     const commentsresponse = await fetch ('/comments');
