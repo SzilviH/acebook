@@ -14,7 +14,7 @@ describe('Logged In ', () => {
 
   describe('adding a post', () => {
     it("asks users for a post", async () => {
-      await expect(page).toMatch("What's on your mind?");
+      await expect(page).toMatch("What's on your mind");
     });
 
     it('users can add posts ', async () => {

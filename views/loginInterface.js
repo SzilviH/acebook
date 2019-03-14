@@ -10,6 +10,7 @@ function onSignIn(googleUser) {
 
   localStorage.setItem("username", profile.getName());
   localStorage.setItem("image", profile.getImageUrl());
+  localStorage.setItem("first_name", profile.getGivenName());
 
   // The ID token you need to pass to your backend:
   var id_token = googleUser.getAuthResponse().id_token;
