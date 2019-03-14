@@ -1,6 +1,5 @@
 let user = localStorage.getItem("username");
 $(document).ready(function() {
-    console.log(user);
     if (user === null) {
         $(location).attr('href', '/')
     } else {
@@ -31,20 +30,9 @@ const sendLike = async (postID) => {
         complete: () => {
         }
     })
-}
-
-// const getLikes = async (postID) => {
-//     await $.ajax({
-//         url: "/likes?postid=" + postID,
-//         success: () => {
-//         },
-//         complete: () => {
-//         }
-//     })
-// }
+};
 
 const loadMessages = async () => {
-  console.log(1);
     const formatMessages = (posts, comments, likes) => {
         const makePostDiv = (element) => {
             const makeLikeButton = (element) => {
@@ -75,12 +63,10 @@ const loadMessages = async () => {
             };
 
             const makeCommentDiv = (element) => {
-                // return `<!--<div>Something ${comments[0].content}</div>-->`;
                 let postComments = relevantComments(element.id);
                 let masterDiv = "";
                  postComments.forEach((comment) => {
                      masterDiv += (`<div>Comment: ${comment.content} User: ${comment.user}</div><br> <br>`);
-                    // return `<div>Comment: ${comment.content} <br> User: ${comment.user}</div>`
                 });
                 return masterDiv
             };
@@ -97,23 +83,24 @@ const loadMessages = async () => {
             const addCommentToPost = (body, postId, author) => {
                 let newComment = (`<div>Comment: ${body} User: ${author}</div><br> <br>`);
                 $(`#placeholder-${postId}`).append(newComment)
-            }
+            };
 
             const addCommentListener = (id) => {
               $(`#${id}`).click((event) => {
                 event.preventDefault();
                 let commentContent = $(`#commentContent-${element.id}`).val();
                 $.post("/comments/create", {content: commentContent, postId: element.id, author: user });
-                addCommentToPost(commentContent, element.id, user )
+                addCommentToPost(commentContent, element.id, user );
+                $(`#commentContent-${element.id}`).val("");
               })
-            }
+            };
 
             const addLikeListener = (id) => {
               $(`#${id}`).click((event) => {
                 sendLike(element.id);
                 $(location).attr('href', '/feed')
               });
-            }
+            };
 
             action === "like" ? addLikeListener(id) : addCommentListener(id);
         };
