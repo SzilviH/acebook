@@ -6,7 +6,7 @@ class Like {
     this.postid = postid
   };
 
-  static async saveToDB(postid) {
+  static async saveLike(postid) {
    await connection.pool.query(`INSERT INTO likes (postid) VALUES ('${postid}')`);
   };
 

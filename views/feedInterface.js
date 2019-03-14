@@ -52,6 +52,7 @@ const getLikes = async (postID) => {
 // const dealWithLike = async () => {
 //   const response = await fetch ('/likes');
 //   const jresponse = await response.json();
+//   console.log(jresponse)
 // }
 
 
