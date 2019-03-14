@@ -15,7 +15,7 @@ class Comment {
 
     static async getComments() {
         let allCommentsArray = [];
-        let allComments = await connection.pool.query("SELECT id, content, postid, author, date FROM comments ORDER BY date DESC");
+        let allComments = await connection.pool.query("SELECT id, content, postid, author, date FROM comments ORDER BY date ASC");
         allComments.rows.forEach((element) => {
             element.date = element.date.toString().substring(0, 24);
             allCommentsArray.push(new Comment(element.id, element.content, element.author, element.postid, element.date))
