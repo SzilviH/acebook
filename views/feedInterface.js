@@ -30,7 +30,8 @@ const sendLike = async (postID) => {
         complete: () => {
         }
     })
-}
+
+};
 
 const loadMessages = async () => {
     const formatMessages = (posts, comments, likes) => {
@@ -75,6 +76,8 @@ const loadMessages = async () => {
                 return `<div id="placeholder-${element.id}"></div><br> <br>`
             }
             return `<div id=${element.id}>`+formatUserInput(element)+`-- ${element.user} -- ${element.date}`+makeLikeButton(element) + makeCommentDiv(element) + makeCommentBox(element) + `<span id="likes-count-${element.id}">` + relevantLikes(element.id) + `</span>` + `<div>`
+            };
+
 
         };
         const addEventListener = (element, action) => {
@@ -83,16 +86,17 @@ const loadMessages = async () => {
             const addCommentToPost = (body, postId, author) => {
                 let newComment = (`<div>Comment: ${body} User: ${author}</div><br> <br>`);
                 $(`#placeholder-${postId}`).append(newComment)
-            }
+            };
 
             const addCommentListener = (id) => {
               $(`#${id}`).click((event) => {
                 event.preventDefault();
                 let commentContent = $(`#commentContent-${element.id}`).val();
                 $.post("/comments/create", {content: commentContent, postId: element.id, author: user });
-                addCommentToPost(commentContent, element.id, user )
+                addCommentToPost(commentContent, element.id, user );
+                $(`#commentContent-${element.id}`).val("");
               })
-            }
+            };
 
             const addLikeListener = (id) => {
               $(`#${id}`).click((event) => {
@@ -106,7 +110,7 @@ const loadMessages = async () => {
                 }
 
               });
-            }
+            };
 
             action === "like" ? addLikeListener(id) : addCommentListener(id);
         };
