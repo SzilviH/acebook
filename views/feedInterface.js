@@ -53,11 +53,12 @@ const loadMessages = async () => {
             const makeCommentDiv = (element) => {
                 // return `<!--<div>Something ${comments[0].content}</div>-->`;
                 let postComments = relevantComments(element.id);
-                return postComments.forEach((comment) => {
-                    console.log(comment.content);
-                    // return '<div> hello</div>'
-                    return `<div>Comment: ${comment.content} <br> User: ${comment.user}</div>`
-                })  
+                let masterDiv = "";
+                 postComments.forEach((comment) => {
+                     masterDiv += (`<div>Comment: ${comment.content} User: ${comment.user}</div><br> <br>`);
+                    // return `<div>Comment: ${comment.content} <br> User: ${comment.user}</div>`
+                })
+                return masterDiv
             }
 
             return `<div id=${element.id}>`+formatUserInput(element)+`-- ${element.user} -- ${element.date}`+makeLikeButton(element) + makeCommentDiv(element) + makeCommentBox(element) + `<div>`

@@ -10,7 +10,6 @@ class Comment {
     };
 
     static async saveToDB(content, user, postId) {
-        console.log("model");
         await connection.pool.query(`INSERT INTO comments (content, author, postId) VALUES ('${content}', '${user}', '${postId}')`);
     };
 
