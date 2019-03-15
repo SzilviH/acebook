@@ -6,14 +6,17 @@
   <meta name="google-signin-scope" content="profile email">
   <meta name="google-signin-client_id" content="176013400464-7iemt6j1diecc6cnik262qutqb0k4cgh.apps.googleusercontent.com">
   <script src="https://apis.google.com/js/platform.js" async defer></script>
-  <script src="./style.css"></script>
-
+  <link rel="stylesheet" type="text/css" href="style.css">
   <script src="loginInterface.js"></script>
-
+  <style media="screen">
+    body{
+      background-image: url('plants.jpg');
+    }
+  </style>
 </head>
 <body align = center>
-  <div> Please log in to access Acebook</div>
-    <div class="g-signin2" data-onsuccess="onSignIn" id="googleLogIn" data-theme="dark"></div>
-    <a href="#" onclick="signOut();">Sign out</a>
+  <div style="text-align:center; font-size: 25px; padding-top:150px; padding-bottom:20px;"> Please log in with your Google account to access Acebook</div>
+  <div class="g-signin2" data-onsuccess="onSignIn" id="googleLogIn" data-theme="dark">button</div>
+    <!-- <a href="#" onclick="signOut();">Sign out</a> -->
 </body>
 </html>

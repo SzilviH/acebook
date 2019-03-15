@@ -28,7 +28,7 @@ Add .env file
 DATABASE_URL = 'postgresql://<your_username>@localhost/acebook'
 LOCAL = true
 ```
-If cloning this repo ensure the .evn has the correct database url param.
+If cloning this repo ensure the .env has the correct database url param.
 
 run =  ```heroku local```
 

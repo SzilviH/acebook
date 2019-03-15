@@ -14,16 +14,23 @@
 
   </head>
   <body align=center id="body">
-    <nav>
+    <ul>
+      <li style="float:left"><a class="brand" href="#">A C E B O O K</a></li>
+      <li><a class="active" href="/" id="home-login" class="here">Home</a></li>
+      <li><a href="#" id="sign-out" onclick="signOut();">Sign out</a></li>
+      <li><input id="srchbar" type="search" placeholder="Search"></li>
+    </ul>
+    <!-- <nav>
       <div>
         <a href="/" id="home-login" class="here">Home</a>
         <a href="#" id="sign-out" onclick="signOut();">Sign out</a>
         <input id="srchbar" type="search" placeholder="Search"><br><br>
       </div>
-    </nav>
+    </nav> -->
+  <div style="padding:20px;margin-top:30px">
     <div id="feed">
       <div id="post-form">
-        <p>What's on your mind <span id ="greet_user"></span>?</p>
+        <p>What's on your mind, <span id ="greet_user"></span>?</p>
         <form name="addPost">
           <textarea id="postContent" type="text" name="content" placeholder="Post" rows ='5' cols = '60'></textarea>
           <input id="submit" type="submit" name="submit" value="Submit">
@@ -35,9 +42,9 @@
       </div>
 
     </div>
-    <div id="good-bye-message">
+    <div id="good-bye-message" style="font-size:60px; padding-top:200px; text-align:center;">
 
     </div>
-
+  </div>
   </body>
 </html>
