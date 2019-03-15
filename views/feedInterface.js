@@ -7,7 +7,7 @@ $(document).ready(function() {
     } else {
         loadMessages();
         $("#greet_user").text(`${first_name}`);
-        $("#post-form").prepend(`<img src = ${user_image}>`)
+        $("#post-form").prepend(`<img id="main_image" src = ${user_image}>`)
     }
     $('#submit').click(function (event) {
         event.preventDefault();
@@ -79,7 +79,12 @@ const loadMessages = async () => {
             const makeCommentPlaceholder = (element) => {
                 return `<div id="placeholder-${element.id}"></div>`
             };
-            return `<div id=${element.id} class="post-div"><img src = ${element.user_image}> `+formatUserInput(element)+` -- ${element.user} -- ${element.date}<br>`+makeLikeButton(element) + makeCommentDiv(element) + makeCommentPlaceholder(element) + makeCommentBox(element) + `<span id="likes-count-${element.id}">` + relevantLikes(element.id) + "</span></div><br><br>"
+            return `<div id=${element.id} class="post-div"><img id="post-image" src =${element.user_image}> `
+                + `<div id="comment-div">` + formatUserInput(element)+` -- ${element.user} -- ${element.date}<br> </div>`
+                + makeLikeButton(element) + makeCommentDiv(element)
+                + makeCommentPlaceholder(element) + makeCommentBox(element)
+                + `<span id="likes-count-${element.id}">` + relevantLikes(element.id)
+                + "</span> </div><br><br>"
 
         };
         const addEventListener = (element, action) => {
