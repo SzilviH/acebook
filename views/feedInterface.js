@@ -86,7 +86,9 @@ const loadMessages = async () => {
             let id = `${action}-${element.id}`;
 
             const addCommentToPost = (body, postId, author) => {
-                let newComment = (`<div>Comment: ${body} User: ${author}</div>`);
+                let newComment = (
+                    `<div class="comment"><span class="comment-body">${body}</span> <span class="user"> -- ${author}</span></div>`
+                );
                 $(`#placeholder-${postId}`).append(newComment)
             };
 
